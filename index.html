@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Plant Disease Classification</title>
+  </head>
+  <body>
+    <h1>Plant Disease Classification</h1>
+    {% if error %}
+      <p style="color:red">{{ error }}</p>
+    {% endif %}
+    <form method="POST" action="{{ url_for('predict') }}" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*" required>
+      <br><br>
+      <input type="submit" value="Predict">
+    </form>
+    {% if prediction %}
+      <p>Prediction: {{ prediction }}</p>
+    {% endif %}
+  </body>
+</html>
